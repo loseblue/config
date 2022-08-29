@@ -1,0 +1,485 @@
+"=============================================================================
+"     FileName: _vimrc
+"         Desc: 
+"       Author: loseblue
+"        Email: loseblue[a]163.com
+"      Version: 2.0.0
+"   LastChange: 2018-05-16 18:18:37
+"      History:
+"=============================================================================
+" Platform
+if(has("win32") || has("win64") || has("win95") || has("win16"))
+    let g:iswindows = 1
+    let g:isMac = 0
+    let g:isLinux = 0
+elseif has("mac") || has("macunix")
+    let g:iswindows = 0
+    let g:isMac = 1
+    let g:isLinux = 0
+else
+    let g:iswindows = 0
+    let g:isMac = 0
+    let g:isLinux = 1
+endif
+
+if has("gui") || has("gui_running")
+    let g:isGUI = 1
+else
+    let g:isGUI = 0
+endif
+"}}}
+
+"=========================== Vundle start ================================
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+call plug#begin('~/.vim/plugged')
+
+" Enhanced
+Plug 'haya14busa/incsearch.vim'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'Yggdroot/vim-mark'
+
+Plug 'Lokaltog/vim-easymotion'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'thisivan/vim-matchit'
+Plug 'itchyny/vim-cursorword'
+
+" file
+Plug 'plasticboy/vim-markdown', {'for': 'markdown' }
+Plug 'loseblue/MarkdownFast'
+Plug 'vim-scripts/autohotkey-ahk', { 'for': 'ahk' }
+" Plug 'aklt/plantuml-syntax', {'for': 'plantuml' }
+Plug 'itchyny/vim-cursorword', {'for': ['c', 'cpp', 'python']}
+Plug 'nathanalderson/yang.vim', {'for': 'yang' }
+Plug 'othree/xml.vim', {'for': 'xml' }
+
+Plug 'Yggdroot/indentLine' , {'for': ['c', 'cpp', 'python']}
+
+Plug 'justinmk/vim-syntax-extra', {'for': ['c', 'cpp', 'python']}
+Plug 'vim-scripts/a.vim', {'for': ['c', 'cpp']}
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'cpp']}
+
+Plug 'vim-scripts/VisIncr'
+Plug 'Yggdroot/LeaderF', { 'do': '.\install.bat' }
+Plug 'Yggdroot/LeaderF-marks'
+Plug 'liuchengxu/vista.vim'
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+
+Plug 'godlygeek/tabular'
+Plug 'osyo-manga/vim-over', {'on': 'OverCommandLine'}
+Plug 'mbbill/undotree'
+
+" Plug 'loseblue/vim-snippets'
+
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+
+" show
+Plug 'frazrepo/vim-rainbow'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'drmikehenry/vim-fontsize'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/goyo.vim'
+
+Plug 'ap/vim-css-color'
+
+
+call plug#end()
+
+" filetype Plug indent on    " required
+
+" {{{colorscheme
+syntax on
+
+" set background=light
+set background=dark
+colorscheme gruvbox
+
+set nobackup               " cloese backup
+set noswapfile             " no swap files
+set nowritebackup          " only in case you don't want a backup file while editing
+
+set display=lastline
+set iskeyword+=_,$,@,%,#,-
+set backspace=2            " backspace can be used
+set nu!                    " show line number
+set relativenumber         " relative line number
+set autoread               " Set to auto read when a file is changed from the outside
+set fdm=indent             " foldmethod lines
+set foldlevelstart=99      " cancel auto fold
+" set cursorcolumn           " high light cursor column
+set cursorline             " high light cursor line
+set synmaxcol=300          " speedup long line
+set linespace=0            " set line high space
+
+set cc=500                 " colorcolumn 100
+set linebreak              " Do not cut words between lines, USELESS!
+set clipboard=unnamed      " yank and paste with the system clipboard
+set lazyredraw             " Don't redraw while executing macros
+set noerrorbells visualbell t_vb= " shut down error ringBell
+set vb t_vb=
+set novisualbell
+
+set term=xterm
+set autochdir
+autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+set encoding=utf-8 " file encoding setting
+set langmenu=zh_CN.UTF-8
+language message zh_CN.UTF-8
+set fileencodings=utf-8,gbk,ucs-bom,cp936 "redad file orders 
+set fenc=utf-8 "create new file encoding 
+if g:iswindows 
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+    language messages zh_CN.utf-8
+endif
+set nobomb
+set list
+set listchars=tab:\|-
+set tabpagemax=15 
+set showtabline=0
+set noshowmode 
+
+
+map <A-j> <PageDown>
+map <A-k> <PageUp>
+
+if (g:isGUI)
+	set lines=35 columns=150   " init UI size
+endif
+
+" status bar
+set laststatus=2
+
+" Ignore compiled files
+set wildignore=*.o,*.a,*~,*.pyc
+if g:iswindows 
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+    set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\\*  " Windows ('noshellslash')
+else
+    set wildignore+=.git\*,.hg\*,.svn\*,GRTAGS,GTAGS
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*        " Linux/MacOSX
+endif
+
+"Set mapleader
+let mapleader = ","
+let g:mapleader = ","
+set ignorecase smartcase "search smart cease, wrap, incrase, highlight
+
+" VIM font setting
+if (g:isMac)
+    set guifont=Monaco:h12
+elseif (g:isLinux)
+    set guifont=Monaco
+else
+	set guifont=Sarasa_Mono_SC_Nerd:h11
+"	set guifont=SauceCodePro\ NF:h11
+"	set guifontwide=yaheiInconsolata:h12
+endif
+
+" goyo
+let g:goyo_width = 150
+let g:goyo_height = 100
+
+" C setting
+set sm        " bracket mactch
+
+set tabstop=4       " set width of tab
+set expandtab       " set blanks replace tab
+set shiftwidth=4    " set with of assignment blank num = 4
+set cindent   " c style cindent
+set cinoptions={0,1s,t0,(0,
+nnoremap zz zt9k9j
+
+" ctrl+c ctrl+v ctrl+x
+set clipboard+=unnamed
+map <C-c> "+y
+smap <C-c> "+y
+imap <C-v> <ESC>"+p
+map <C-v> "+p
+
+noremap  H ^
+noremap  L $
+
+" file code type
+set ffs=dos,unix
+nmap <leader>ffd :se ff=dos<CR>
+nmap <leader>ffu :se ff=unix<CR>
+
+" incsearch  {
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+" }
+
+" Undotree  {
+nnoremap <Leader>u :UndotreeToggle<CR>
+if has("persistent_undo")
+   let target_path = expand('~/.undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+" }
+
+" matchIt {
+let loaded_matchit = 1
+" }
+
+" easy motion {
+let g:EasyMotion_do_shade = 0
+
+map <Leader>w <Plug>(easymotion-w)
+map <Leader>b <Plug>(easymotion-b)
+
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+" }
+
+" vim-mark {  --multi highlight words
+	nmap <Leader>M <Plug>MarkToggle
+"}
+
+" NERD_comments
+let NERDSpaceDelims = 1 
+au BufEnter,BufRead,BufNewFile *.txt setlocal ft=txt "txtBrowser called
+au BufEnter,BufRead,BufNewFile *.trc setlocal ft=trc "trcBrowser called
+
+" vim-multiple-cursors {
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<A-]>'
+let g:multi_cursor_prev_key='<A-[>'
+let g:multi_cursor_skip_key='<A-\>'
+let g:multi_cursor_quit_key='<Esc>'
+"}
+
+" vim-bookmarks {
+let g:bookmark_highlight_lines = 1
+let g:bookmark_auto_close = 1
+"}
+
+" Ctrl+S {
+imap <C-s> <Esc>:wa!<CR>i<Right>
+nmap <C-s> :wa!<CR>
+set nocompatible
+source $VIMRUNTIME/mswin.vim
+behave mswin
+" }
+
+" NerdTree {
+let NERDTreeWinPos="left"
+let NERDTreeShowBookmarks=1
+" }
+
+" vim-repeat {
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+" }
+
+" easyGrep {
+let EasyGrepMode = 2     "extension mode
+let EasyGrepCommand = 1  "grep
+" }
+
+" gruvbox {
+let g:gruvbox_italic = 0
+let g:gruvbox_italicize_comments = 0
+let g:gruvbox_italicize_strings = 0
+" }
+
+" leaderF {
+" let g:Lf_PreviewInPopup = 1
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PopupWidth = 0.9
+let g:Lf_PopupHeight = 0.9
+let g:Lf_PopupShowStatusline = 0
+" let g:Lf_PopupPosition = [40, 0]
+" let g:Lf_WindowPosition = 'left'
+
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_RootMarkers = ['.project', '.git', '.hg', '.svn']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git'],
+            \ 'file': ['*.bak','*.exe','*.[oad]','*.so','*.py[co]']
+            \}
+
+noremap ff :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
+noremap fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+
+let g:Lf_MruMaxFiles=50
+
+let g:Lf_GtagsAutoGenerate = 1 "或者手动Leaderf gtags --update
+" let g:Lf_Gtagslabel = 'native-pygments'
+
+noremap ft :<C-U><C-R>=printf("Leaderf mru")<CR><CR>
+
+noremap fl :LeaderfFunction!<CR>
+noremap fm :LeaderfMarks<CR>
+noremap fo :<C-U><C-R>=printf("Leaderf! --recall")<CR><CR>
+noremap fn :<C-U><C-R>=printf("Leaderf --next")<CR><CR>
+noremap fp :<C-U><C-R>=printf("Leaderf --previous")<CR><CR>
+noremap f, <C-O>
+noremap f. <C-I>
+
+noremap fu :Leaderf gtags --update --skip-unreadable<CR><CR>
+
+noremap fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump --result ctags-x", expand("<cword>"))<CR><CR>
+noremap fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump --result ctags-x", expand("<cword>"))<CR><CR>
+noremap fg :<C-U><C-R>=printf("Leaderf! gtags -g %s --auto-jump --result ctags-x", expand("<cword>"))<CR><CR>
+noremap fs :<C-U><C-R>=printf("Leaderf! gtags -s %s --auto-jump --result ctags-x", expand("<cword>"))<CR><CR>
+
+noremap fR :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump --append --result ctags-x", expand("<cword>"))<CR><CR>
+noremap fD :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump --append --result ctags-x", expand("<cword>"))<CR><CR>
+noremap fG :<C-U><C-R>=printf("Leaderf! gtags -g %s --auto-jump --append --result ctags-x", expand("<cword>"))<CR><CR>
+noremap fS :<C-U><C-R>=printf("Leaderf! gtags -s %s --auto-jump --append --result ctags-x", expand("<cword>"))<CR><CR>
+
+noremap fa :Leaderf! gtags -s 
+
+" }
+
+" plantuml {
+let g:plantuml_executable_script='java -jar c:\vim_tools\plantuml.jar -charset UTF-8'
+"}
+
+" vim-rainbow {
+let g:rainbow_active = 1
+"}
+
+" airline {
+let g:airline_theme='wombat'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
+let g:airline_powerline_fonts = 1
+
+" }
+
+
+
+func Replace_Chn()  " for writing latex
+    let chinese={ "（" : "(" , "）" : ")" , "，" : ", ", "。" : ". ", "；" : "; ", "：" : ": ", "？" : "? ", "！" : "! ", "、" : ". ", "“" : "\"", "’" : "'" ,"”" : "\"", "℃" : "\\\\textcelsius", "μ" : "$\\\\mu$"}
+    for i in keys(chinese)
+        silent! exec '%substitute/' . i . '/'. chinese[i] . '/g'
+    endfor
+endfunc
+
+nmap <silent> <leader>lc <ESC>:call Replace_Chn()<CR>
+
+" 
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+"
+
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+
+" git-blame
+nnoremap <Leader>g :<C-u>call gitblame#echo()<CR>
+"
+
+" vista
+let g:vista_sidebar_open_cmd = '50vsplit'
+
+function! NearestMethodOrFunction() abort
+	return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_default_executive = 'ctags'
+let g:vista#renderer#ctags = '--list-kinds=c++'
+let g:vista_ctags_cmd = {
+			\ 'haskell': 'hasktags -x -o - -c',
+			\ }
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+			\   "function": "\uf794",
+			\   "variable": "\uf71b",
+			\  }
+
+"
+
+" """"""""""""""""""" F1-F12"""""""""""""""""""""""""
+" F1 Toggle Menu and Toolbar {
+if g:isGUI
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=L 
+    set guioptions-=r
+    set guioptions-=b
+    map <silent> <F1> :if &guioptions =~# 'T' <Bar>
+                \set guioptions-=T <Bar>
+                \set guioptions-=m <bar>
+                \set guioptions-=L <bar>
+                \set guioptions-=r <bar>
+                \set guioptions-=b <bar>
+                \else <Bar>
+                \set guioptions+=T <Bar>
+                \set guioptions+=m <Bar>
+                \set guioptions+=L <bar>
+                \set guioptions+=r <bar>
+                \set guioptions+=b <bar>
+                \endif<CR>
+endif
+"}
+
+
+nmap <F2> :Goyo<CR>
+
+noremap <F3> :Leaderf! rg -F 
+noremap <C-F3> :<C-U><C-R>=printf("Leaderf! rg -F -w %s ", expand("<cword>"))<CR>
+noremap <S-F3> :<C-U><C-R>=printf("Leaderf! rg --append -F -w %s ", expand("<cword>"))<CR>
+
+
+" C-F5 plantuml make F5 dot
+nnoremap <F5> :w<CR> :silent make<CR>
+inoremap <F5> <Esc>:w<CR>:silent make<CR>
+vnoremap <F5> :<C-U>:w<CR>:silent make<CR>
+
+map <F6> <Esc>:%!xxd<CR>
+map <S-F6> <Esc>:%!xxd -e<CR>
+map <C-F6> <Esc>:%!xxd -r<CR>
+imap <F7> <C-R>=strftime("%c")<CR>
+noremap <C-F7> :call Replace_Chn()\|:%s/ //g<CR>
+
+
+nmap <F12> :Vista<CR>
+nmap <C-F12> :NERDTreeToggle<CR>
+
+
+
+set vb t_vb=
+
+map <leader>m1 :MdAddHeader 1<CR>
+map <leader>m2 :MdAddHeader 2<CR>
+map <leader>m3 :MdAddHeader 3<CR>
+map <leader>m4 :MdAddHeader 4<CR>
+map <leader>m<space> :MdRmSpace<CR>
+map <leader>m` :MdAddLineBackquote<CR>
+map <leader>m* :MdAddLineStrong<CR>
+
+" window jump in VIM Ctrl + hjkl
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
