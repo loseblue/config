@@ -1,0 +1,30 @@
+customization:
+  distribution_code_name: Weasel
+  distribution_version: 0.14.3
+  generator: "Weasel::UIStyleSettings"
+  modified_time: "Fri Dec 13 10:43:45 2019"
+  rime_version: 1.5.3
+patch:
+  "app_options/code.exe":
+    ascii_mode: true
+  "app_options/mintty.exe":
+    ascii_mode: true
+  "app_options/gvim.exe":
+    ascii_mode: true
+  "app_options/nvim.exe":
+    ascii_mode: true
+  "app_options/nvim-qt.exe":
+    ascii_mode: true
+  "app_options/sourceinsight4.exe":
+    ascii_mode: true
+  "app_options/totalcmd64.exe":
+    ascii_mode: true
+  "app_options/wox.exe":
+    ascii_mode: true
+  "app_options/xshell.exe":
+    ascii_mode: true
+  "app_options/xshellcore.exe":
+    ascii_mode: true
+  "app_options/cmder.exe":
+    ascii_mode: true
+  "style/color_scheme": psionics
