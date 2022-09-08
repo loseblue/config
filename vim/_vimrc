@@ -1,12 +1,3 @@
-"=============================================================================
-"     FileName: _vimrc
-"         Desc: 
-"       Author: loseblue
-"        Email: loseblue[a]163.com
-"      Version: 2.0.0
-"   LastChange: 2018-05-16 18:18:37
-"      History:
-"=============================================================================
 " Platform
 if(has("win32") || has("win64") || has("win95") || has("win16"))
     let g:iswindows = 1
@@ -148,8 +139,13 @@ set showtabline=0
 set noshowmode 
 
 
-map <A-j> <PageDown>
-map <A-k> <PageUp>
+if (g:isMac)
+    map <D-j> <PageDown>
+    map <D-k> <PageUp>
+else
+    map <A-j> <PageDown>
+    map <A-k> <PageUp>
+endif
 
 if (g:isGUI)
 	set lines=35 columns=150   " init UI size

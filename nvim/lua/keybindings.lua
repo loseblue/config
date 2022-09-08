@@ -21,7 +21,8 @@ map("v", ">", ">gv", opt)
 map("n", "H", "^", opt)
 map("n", "L", "$", opt)
 
-
+map("n", "<D-j>", "<PageDown>", opt)
+map("n", "<D-k>", "<PageUp>", opt)
 map("n", "<A-j>", "<PageDown>", opt)
 map("n", "<A-k>", "<PageUp>", opt)
 map("n", "zz", "zt9k9j", opt)
@@ -35,6 +36,4 @@ map("n", "<leader>j", ":HopLineStartAC<CR>", opt)
 map("n", "<leader>k", ":HopLineStartBC<CR>", opt)
 map("n", "<leader>w", ":HopWordAC<CR>", opt)
 map("n", "<leader>b", ":HopWordBC<CR>", opt)
-
-
 
