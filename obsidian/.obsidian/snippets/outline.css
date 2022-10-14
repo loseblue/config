@@ -1,0 +1,60 @@
+/* connecting lines outliner */
+.outline {
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.outline .tree-item {
+  line-height: 1;
+}
+
+.outline .tree-item-self {
+  padding-top: 0.1px;
+  padding-bottom: 0.1px;
+  padding-left: 0.3px;
+  padding-right: 0.3px;
+}  
+
+.outline .tree-item-collapse {
+  left: 0.1rem;
+}  
+
+.outline .tree-item-inner{
+  position:relative;
+  padding-top: 0.1rem;
+  padding-left: 1.7em;
+  text-indent: -0.8em;
+  margin-left: 0.1rem;
+}  
+
+.outline .tree-item-children {
+  margin-top: 0rem;
+  margin-left: 0.5rem;
+  padding-top: 0rem;
+  padding-left: 0.1rem;
+  border-left: 1px solid var(--sidebar-marks, var(--background-modifier-border));
+  border-radius: 4px;
+  transition:all 0.5s ease-in-out;
+}
+
+.outline .tree-item-children:hover {
+  border-left-color: var(--sidebar-marks-hover, var(--background-secondary));
+}
+
+.outline .collapse-icon + .tree-item-inner {
+  font-weight: 400;
+  padding-left: 0rem;
+}
+
+.outline .collapse-icon {
+  margin-top: 0.1rem;
+  margin-left: -0.4rem;
+  margin-right: -0.4rem;
+  width: 2rem;
+}
+
+.nav-file-title {
+    padding: 0.5px 1px 0.5px 1px;
+}

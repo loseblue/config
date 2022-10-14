@@ -1,0 +1,15 @@
+  height: 1px;
+.markdown-preview-view h1, .cm-header-1 {font-size: 1.8rem !important;}
+.markdown-preview-view h2, .cm-header-2 {font-size: 1.6rem !important;}
+.markdown-preview-view h3, .cm-header-3 {font-size: 1.4rem !important;}
+.markdown-preview-view h4, .cm-header-4 {font-size: 1.3rem !important;}
+.markdown-preview-view h5, .cm-header-5 {font-size: 1.2rem !important;}
+.markdown-preview-view h6, .cm-header-6 {font-size: 1.1rem !important;}
+
+.cm-formatting-header-1 {font-size: 1.8rem !important;}
+.cm-formatting-header-2 {font-size: 1.6rem !important;}
+.cm-formatting-header-3 {font-size: 1.4rem !important;}
+.cm-formatting-header-4 {font-size: 1.2rem !important;}
+.cm-formatting-header-5 {font-size: 1.1rem !important;}
+.cm-formatting-header-6 {font-size: 1.0rem !important;}
+

@@ -1,0 +1,72 @@
+.theme-dark .markdown-preview-view tr:nth-child(even) {
+    background-color: #3c3836;
+}
+/*最后一行画横线*/
+.theme-dark .markdown-preview-view tr:last-child {
+    border-bottom: 1px solid  #999999;
+}
+
+/* .theme-dark { */
+  /* --table-background-color: #13191d; */
+  /* --table-background-color-odd: #0e1316; */
+  /* --table-border-color: #444a73; */
+  /* --table-thead-background-color: #4e95e67e; */
+  /* --table-hover-raw-color: #192632; */
+  /* --table-hover-color: #28353d; */
+  /* --table-hover-thead-color: #3887be; */
+/* } */
+
+/* .theme-light { */
+  /* --table-background-color: #13191d; */
+  /* --table-background-color-odd: #0e1316; */
+  /* --table-border-color: #444a73; */
+  /* --table-thead-background-color: #4e95e67e; */
+  /* --table-hover-raw-color: #192632; */
+  /* --table-hover-color: #28353d; */
+  /* --table-hover-thead-color: #3887be; */
+/* } */
+
+.markdown-preview-view table {
+  border: 2px solid #C0C0C0;
+}
+
+
+
+
+tbody > tr:nth-child(odd) {
+  background-color: var(--table-background-color-odd);
+}
+ 
+tbody > tr {
+  background-color: var(--table-background-color);
+  font-size: 0.875em;
+}
+ 
+.markdown-preview-view th,
+.markdown-preview-view td{
+  padding: 3px 10px;
+  border: px solid var(--table-border-color);
+}
+
+.markdown-preview-view thead {
+  background-color: var(--table-thead-background-color);
+  font-size: 0.875em;
+}
+
+/*table hover*/
+.markdown-preview-view td:hover{
+  background-color: var(--table-hover-color);
+  transition: 0.3s ease-in-out;
+}
+
+/*table raw hover*/
+.markdown-preview-view tr:hover{
+  background-color: var(--table-hover-raw-color);
+  transition: 0.3s ease-in-out;
+}
+
+.markdown-preview-view th:hover{
+  background-color: var(--table-hover-thead-color);
+  transition: 0.3s ease-in-out;
+}
+

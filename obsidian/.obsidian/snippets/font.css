@@ -1,0 +1,103 @@
+body { 
+    --font-monospace: '更纱黑体 Mono SC Nerd', 'Source Code Pro', monospace;
+}
+
+root {
+    --default-font: '更纱黑体 Mono SC Nerd', 'Source Code Pro', Menlo, Monaco, monospace;
+    --font-editor-override: '更纱黑体 Mono SC Nerd', 'Source Code Pro', Menlo, Monaco, monospace;
+    --font-monospace: '更纱黑体 Mono SC Nerd', 'Source Code Pro', monospace;
+}
+
+table{
+    font-family: '更纱黑体 Mono SC Nerd', 'Source Code Pro',  -apple-system, Segoe UI;
+}
+
+.markdown-preview-view{
+	font-family:'更纱黑体 Mono SC Nerd', 'Source Code Pro',   monospace;
+	line-height:1.6;
+}
+
+// 设置编辑界面
+.markdown-source-view{
+	font-family: "更纱黑体 Mono SC Nerd", 'Source Code Pro', monospace;
+	text-align: justify;
+	hyphens: auto;
+}
+
+.nav-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding:4px 4px 0px 4px;
+    margin-bottom:0px !important;
+    justify-content:flex-start;
+    border:0;
+}
+.nav-files-container {
+    overflow-x:hidden;
+    line-height:1.2;
+    margin:1 0 0 2px;
+    min-width:auto;
+}
+.nav-folder-title {
+    margin:0 0 0 1px;
+    min-width:auto;
+    width:calc(100% - 20px);
+    padding:6 0px 0 16px;
+    line-height:1;
+    cursor:var(--cursor);
+    font-size:14px;
+}
+
+.nav-folder-title-content {
+    padding:0px 4px 1px 0;
+}
+.nav-file {
+    margin-left:10px;
+    padding-right:4px;
+}
+.nav-file-title {
+    width:calc(100% - 30px);
+    margin:2 6px 0 1px;
+    padding:2px 2px;
+    border-width:0;
+    line-height:1.1;
+    border-radius:var(--radius-m);
+    cursor:var(--cursor);
+    font-size:12px;
+}
+
+.search-result-file-title {
+    margin:0 0 -4px 0;
+    border-width:0;
+    line-height:1;
+    font-size:14px;
+}
+
+.side-dock-collapsible-section-header {
+    line-height:1;
+    color:var(--text-muted);
+    cursor:var(--cursor);
+    margin-right:0;
+    margin-left:0;
+}
+
+.menu-item-icon {
+    width:14px;
+    opacity:0.6;
+    position: static;
+    margin-right: 3px;
+}
+
+.menu-item {
+    font-size:0.8em;
+    border-radius:var(--radius-m);
+    padding:1px 2px 2px 6px;
+    margin:0 2px;
+    cursor:var(--cursor);
+    height:auto;
+    line-height:10px;
+    display:flex;
+    align-items:center;
+}
+
+
