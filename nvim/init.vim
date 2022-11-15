@@ -14,6 +14,7 @@ lua require("plugin-config.nvim-treesitter")
 call plug#begin()
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'Yggdroot/LeaderF-marks'
+
 Plug 'liuchengxu/vista.vim'
 Plug 'lfv89/vim-interestingwords'
 
@@ -45,9 +46,9 @@ let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_RootMarkers = ['.project', '.git', '.hg', '.svn']
 let g:Lf_WorkingDirectoryMode = 'Ac'
 let g:Lf_WildIgnore = {
-	    \ 'dir': ['.svn','.git'],
-	    \ 'file': ['*.bak','*.exe','*.[oad]','*.so','*.py[co]']
-	    \}
+            \ 'dir': ['.svn','.git'],
+            \ 'file': ['*.bak','*.exe','*.[oad]','*.so','*.py[co]']
+            \}
 let g:Lf_MruMaxFiles=50
 let g:Lf_GtagsAutoGenerate = 1 "或者手动Leaderf gtags --update
 
@@ -105,13 +106,13 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'ctags'
 let g:vista#renderer#ctags = '--list-kinds=c++'
 let g:vista_ctags_cmd = {
-	    \ 'haskell': 'hasktags -x -o - -c',
-	    \ }
+            \ 'haskell': 'hasktags -x -o - -c',
+            \ }
 let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
-	    \   "function": "\uf794",
-	    \   "variable": "\uf71b",
-	    \  }
+            \   "function": "\uf794",
+            \   "variable": "\uf71b",
+            \  }
 " }
 
 " vim-bookmarks {
