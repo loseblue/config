@@ -1,4 +1,3 @@
-
 lua require("basic")
 lua require("plugins")
 lua require("keybindings")
@@ -8,79 +7,33 @@ lua require("colorscheme")
 " 插件配置
 lua require("plugin-config.lualine")
 lua require("plugin-config.nvim-tree")
-lua require("plugin-config.nvim-treesitter")
+" lua require("plugin-config.nvim-treesitter")
 
 
 call plug#begin()
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
-Plug 'Yggdroot/LeaderF-marks'
-
 Plug 'liuchengxu/vista.vim'
 Plug 'lfv89/vim-interestingwords'
+Plug 'Yggdroot/indentLine'
+" Plug 'ConradIrwin/vim-bracketed-paste'    
+Plug 'ryanoasis/vim-devicons'
+Plug 'luochen1990/rainbow'
 
-Plug 'rbgrouleff/bclose.vim'
-Plug 'iberianpig/tig-explorer.vim'
-
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-easy-align'
+Plug 'voldikss/vim-floaterm'
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'tpope/vim-fugitive'
 
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'Shougo/deoplete-clangx'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
 
-" leaderF {
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PopupWidth = 0.9
-let g:Lf_PopupHeight = 0.9
-let g:Lf_PopupShowStatusline = 0
-
-let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-let g:Lf_RootMarkers = ['.project', '.git', '.hg', '.svn']
-let g:Lf_WorkingDirectoryMode = 'Ac'
-let g:Lf_WildIgnore = {
-            \ 'dir': ['.svn','.git'],
-            \ 'file': ['*.bak','*.exe','*.[oad]','*.so','*.py[co]']
-            \}
-let g:Lf_MruMaxFiles=50
-let g:Lf_GtagsAutoGenerate = 1 "或者手动Leaderf gtags --update
-
-noremap ff :<C-U><C-R>=printf("Leaderf file %s", "")<CR><CR>
-noremap fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-noremap ft :<C-U><C-R>=printf("Leaderf mru")<CR><CR>
-
-noremap fl :LeaderfFunction!<CR>
-noremap fo :<C-U><C-R>=printf("Leaderf! --recall")<CR><CR>
-noremap fn :<C-U><C-R>=printf("Leaderf! --next")<CR><CR>
-noremap fp :<C-U><C-R>=printf("Leaderf! --previous")<CR><CR>
-noremap f, <C-O>
-noremap f. <C-I>
-
-noremap fu :Leaderf! gtags --update --skip-unreadable<CR><CR>
-
-noremap fr :<C-U><C-R>=printf("Leaderf! gtags --auto-jump --result ctags-mod -r %s", expand("<cword>"))<CR><CR>
-noremap fd :<C-U><C-R>=printf("Leaderf! gtags --auto-jump --result ctags-mod -d %s", expand("<cword>"))<CR><CR>
-noremap fs :<C-U><C-R>=printf("Leaderf! gtags --auto-jump --result ctags-mod -s %s", expand("<cword>"))<CR><CR>
-noremap fg :<C-U><C-R>=printf("Leaderf! rg -F -w --nameOnly %s ", expand("<cword>"))<CR><CR>
-
-noremap fR :<C-U><C-R>=printf("Leaderf! gtags --auto-jump --append --result ctags-mod -r %s", expand("<cword>"))<CR><CR>
-noremap fD :<C-U><C-R>=printf("Leaderf! gtags --auto-jump --append --result ctags-mod -d %s", expand("<cword>"))<CR><CR>
-noremap fS :<C-U><C-R>=printf("Leaderf! gtags --auto-jump --append --result ctags-mod -s %s", expand("<cword>"))<CR><CR>
-noremap fG :<C-U><C-R>=printf("Leaderf! rg -F -w --nameOnly --append %s ", expand("<cword>"))<CR><CR>
-
-noremap fa :Leaderf! gtags -s 
-
-noremap <F3> :Leaderf! rg -F 
-noremap <C-F3> :<C-U><C-R>=printf("Leaderf! rg -F -w %s ", expand("<cword>"))<CR>
-noremap <S-F3> :<C-U><C-R>=printf("Leaderf! rg -F -w %s ", expand("<cword>"))<CR>
-"}
+autocmd BufNewFile,BufRead *.xml let g:isRust=1
 
 " vim-interestingwords {
 let g:interestingWordsDefaultMappings = 0
@@ -95,7 +48,9 @@ nnoremap <silent> N :call WordNavigation(0)<cr>
 "}
 
 " vista {
-let g:vista_sidebar_open_cmd = '50vsplit'
+nnoremap <silent> <leader>v :Vista!!<cr>
+
+let g:vista_sidebar_open_cmd = '40vsplit'
 
 function! NearestMethodOrFunction() abort
     return get(b:, 'vista_nearest_method_or_function', '')
@@ -103,20 +58,133 @@ endfunction
 
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-let g:vista_default_executive = 'ctags'
+let g:vista_default_executive = 'coc'
 let g:vista#renderer#ctags = '--list-kinds=c++'
 let g:vista_ctags_cmd = {
             \ 'haskell': 'hasktags -x -o - -c',
             \ }
 let g:vista#renderer#enable_icon = 1
 let g:vista#renderer#icons = {
-            \   "function": "\uf794",
-            \   "variable": "\uf71b",
+            \   "function": "\u24d5",
+            \   "variable": "\u24e5",
+            \   "module": "\u24dc",
             \  }
 " }
 
-" vim-bookmarks {
+" coc {
+let g:coc_global_extensions = [
+            \ 'coc-highlight',
+            \ 'coc-tsserver',
+            \ 'coc-fzf-preview',
+            \ 'coc-rust-analyzer',
+            \ 'coc-floaterm',
+            \ 'coc-json',
+            \ 'coc-translator',
+            \ 'coc-snippets',
+            \  ]
+
+inoremap <silent><expr> <TAB>
+            \ coc#pum#visible() ? coc#pum#next(1) :
+            \ CheckBackspace() ? "\<Tab>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+
+nmap <silent> fr :CocCommand fzf-preview.CocReferences<cr> 
+nmap <silent> fc :CocCommand fzf-preview.CocDiagnostics<cr> 
+" nmap <silent> fc :CocCommand fzf-preview.CocCurrentDiagnostics<cr> 
+nmap <silent> fd :CocCommand fzf-preview.CocDefinition<cr> 
+nmap <silent> ft :CocCommand fzf-preview.CocTypeDefinition<cr> 
+nmap <silent> fi :CocCommand fzf-preview.CocImplementations<cr> 
+nmap <silent> fo :CocCommand fzf-preview.CocOutline<cr> 
+nmap <silent> fv :Vista<cr> 
+
+
+noremap f, <C-O>
+noremap f. <C-I>
+
+nmap <silent> ff :CocCommand fzf-preview.ProjectFiles<cr> 
+nmap <silent> fm :CocCommand fzf-preview.Bookmarks<cr> 
+nmap <silent> fb :CocCommand fzf-preview.Buffers<cr> 
+nmap <silent> fs :CocCommand fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=expand('<cword>')<CR>"<CR>
+" nmap <silent> fb :CocCommand fzf-preview.VistaBufferCtags<cr> 
+" nmap <silent> fb :CocCommand fzf-preview.ProjectGrep 
+
+nmap <silent> f/ :CocCommand fzf-preview.Lines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+
+" rust special
+nmap <silent> rp <Plug>(coc-diagnostic-prev)
+nmap <silent> rn <Plug>(coc-diagnostic-next)
+nmap <silent> rr :CocCommand rust-analyzer.run<CR>
+"}
+
+
+" indtent line {
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
+"}
+
+" commentary{
+" gcc to toggle this line, 
+" gc3j to toggle this line and the 3 below it, 
+" gcip to toggle the paragraph. 
+" gc} to toggle to the next blank line, etc. 
+" gcu to uncomment an entire,
+" }
+
+" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" gaip=
+" = Around the 1st occurrences
+" 2= Around the 2nd occurrences
+" *= Around all occurrences
+" **= Left/Right alternating alignment around all occurrences
+" <Enter> Switching between left/right/center alignment modes
+
+" vipga=
+" }
+
+" floaterm {
+let g:floaterm_keymap_new = '<Leader>ft'
+let g:floaterm_keymap_toggle = '<F5>'
+" }
+
+
+"vim-bookmarks {
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
 let g:bookmark_auto_close = 1
 "}
 
-let g:deoplete#enable_at_startup = 1
+"rainbow {
+let g:rainbow_active = 1
+" }
+
+"fzf-preview{
+let g:fzf_preview_use_dev_icons = 1
+let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-dark'
+
+"}
+
+"fzf{
+function! GtagsFzf(query, fullscreen)
+    let command_fmt = ' global -x -- %s | awk ''{printf  $3 ":" $2 "\t"}{$1=$2=$3=""; print $0}'' '
+    let command = printf(command_fmt, a:query)
+    call fzf#vim#grep(command, 0, fzf#vim#with_preview(), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang Gtfzf call GtagsFzf(<q-args>, <bang>0)
+"}

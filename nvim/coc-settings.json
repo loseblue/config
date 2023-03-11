@@ -1,0 +1,4 @@
+{
+    "suggest.minTriggerInputLength" : 3,
+    // "rust-analyzer.checkOnSave.enable" : false,
+}

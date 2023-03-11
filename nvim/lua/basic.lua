@@ -1,4 +1,6 @@
-
+if (vim.fn.has('termguicolors') == 1) then
+    vim.opt.termguicolors = true
+end
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
