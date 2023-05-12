@@ -27,43 +27,54 @@ table{
 .nav-buttons-container {
     display: flex;
     flex-wrap: wrap;
-    padding:4px 4px 0px 4px;
+    padding:1px 1px 0px 4px;
     margin-bottom:0px !important;
     justify-content:flex-start;
     border:0;
 }
 .nav-files-container {
     overflow-x:hidden;
-    line-height:1.2;
-    margin:1 0 0 2px;
+    line-height:0.8;
     min-width:auto;
+    font-size:14px;
+    padding:1px 0px 1px 0px;
 }
 .nav-folder-title {
-    margin:0 0 0 1px;
+    margin:0px 0px 1px 0px;
     min-width:auto;
-    width:calc(100% - 20px);
-    padding:6 0px 0 16px;
-    line-height:1;
+    padding:1px 0px 1px 0px;
+    line-height:0.8;
     cursor:var(--cursor);
+    margin-left:0px;
     font-size:14px;
 }
 
-.nav-folder-title-content {
-    padding:0px 4px 1px 0;
-}
 .nav-file {
-    margin-left:10px;
+    margin-left:4px;
     padding-right:4px;
 }
 .nav-file-title {
     width:calc(100% - 30px);
-    margin:2 6px 0 1px;
+    margin:2px 1px 1px 1px;
     padding:2px 2px;
     border-width:0;
-    line-height:1.1;
+    line-height:1;
     border-radius:var(--radius-m);
     cursor:var(--cursor);
-    font-size:12px;
+    font-size:13px;
+}
+
+.nav-folder.mod-root > .nav-folder-title {
+    font-size: 16px;
+}
+
+.tree-item-inner {
+    line-height: 1.1; 
+}
+
+.tree-item-self.mod-collapsible {
+    padding:0px 0px 1px 10px;
+    /* padding: var(--nav-item-parent-padding); */
 }
 
 .search-result-file-title {
@@ -91,7 +102,7 @@ table{
 .menu-item {
     font-size:0.8em;
     border-radius:var(--radius-m);
-    padding:1px 2px 2px 6px;
+    padding:1px 2px 2px 1px;
     margin:0 2px;
     cursor:var(--cursor);
     height:auto;
@@ -99,5 +110,4 @@ table{
     display:flex;
     align-items:center;
 }
-
 
