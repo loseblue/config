@@ -29,6 +29,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
+Plug 'Exafunction/codeium.vim'
 
 call plug#end()
 
