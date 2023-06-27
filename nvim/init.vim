@@ -20,7 +20,6 @@ Plug 'luochen1990/rainbow'
 
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
-Plug 'voldikss/vim-floaterm'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-fugitive'
 
@@ -78,7 +77,6 @@ let g:coc_global_extensions = [
             \ 'coc-tsserver',
             \ 'coc-fzf-preview',
             \ 'coc-rust-analyzer',
-            \ 'coc-floaterm',
             \ 'coc-json',
             \ 'coc-translator',
             \ 'coc-snippets',
@@ -154,11 +152,6 @@ nmap ga <Plug>(EasyAlign)
 " <Enter> Switching between left/right/center alignment modes
 
 " vipga=
-" }
-
-" floaterm {
-let g:floaterm_keymap_new = '<Leader>ft'
-let g:floaterm_keymap_toggle = '<F5>'
 " }
 
 
