@@ -52,4 +52,4 @@ vim.o.showtabline = 0
 vim.opt.clipboard = "unnamedplus"
 
 
-vim.o.guifont = "Sarasa_Mono_SC_Nerd:h12"
+vim.o.guifont = "Sarasa_Mono_SC_Nerd_regular:h12"
