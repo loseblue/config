@@ -1,0 +1,5 @@
+open sftp://root:111111@192.168.1.111
+
+synchronize remote -filemask="| .git*; .vscode*; *.bak; D:\work\code\nr_hl_cu\.git\; D:\work\code\nr_hl_cu\.vscode\" D:\work\code\nr_hl_cu /home/bjz/nr_hl_cu/cu/nr_hl_cu
+keepuptodate -filemask="| .git*; .vscode*; *.bak; D:\work\code\nr_hl_cu\.git\; D:\work\code\nr_hl_cu\.vscode\" D:\work\code\nr_hl_cu /home/bjz/nr_hl_cu/cu/nr_hl_cu
+
