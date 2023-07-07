@@ -107,7 +107,7 @@ nmap <silent> rr :CocCommand rust-analyzer.run<CR>
 
 " fugitive git {
 nmap <silent> gs :Git status<CR>
-nmap <silent> gs :Gvdiffsplit<CR>
+nmap <silent> gd :Gvdiffsplit<CR>
 
 "}
 
