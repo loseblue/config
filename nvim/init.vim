@@ -11,7 +11,6 @@ lua require("plugin-config.nvim-tree")
 
 
 call plug#begin()
-Plug 'liuchengxu/vista.vim'
 Plug 'lfv89/vim-interestingwords'
 Plug 'Yggdroot/indentLine'
 " Plug 'ConradIrwin/vim-bracketed-paste'    
@@ -24,7 +23,9 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'tpope/vim-fugitive'
 
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf.vim' " needed for previews
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
@@ -47,33 +48,11 @@ nnoremap <silent> N :call WordNavigation(0)<cr>
 
 "}
 
-" vista {
-nnoremap <silent> <leader>v :Vista!!<cr>
-
-let g:vista_sidebar_open_cmd = '40vsplit'
-
-function! NearestMethodOrFunction() abort
-    return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-let g:vista_default_executive = 'coc'
-let g:vista#renderer#ctags = '--list-kinds=c++'
-let g:vista_ctags_cmd = {
-            \ 'haskell': 'hasktags -x -o - -c',
-            \ }
-let g:vista#renderer#enable_icon = 1
-let g:vista#renderer#icons = {
-            \   "function": "\u24d5",
-            \   "variable": "\u24e5",
-            \   "module": "\u24dc",
-            \  }
-" }
 
 " coc {
 let g:coc_global_extensions = [
             \ 'coc-highlight',
+            \ 'coc-explorer',
             \ 'coc-tsserver',
             \ 'coc-fzf-preview',
             \ 'coc-rust-analyzer',
@@ -97,7 +76,6 @@ function! CheckBackspace() abort
 endfunction
 
 
-
 nmap <silent> fr :CocCommand fzf-preview.CocReferences<cr> 
 nmap <silent> fc :CocCommand fzf-preview.CocDiagnostics<cr> 
 " nmap <silent> fc :CocCommand fzf-preview.CocCurrentDiagnostics<cr> 
@@ -111,7 +89,8 @@ nmap <silent> fv :Vista<cr>
 noremap f, <C-O>
 noremap f. <C-I>
 
-nmap <silent> ff :CocCommand fzf-preview.ProjectFiles<cr> 
+nmap <silent> ff :CocCommand explorer<cr> 
+" nmap <silent> ff :CocCommand fzf-preview.ProjectFiles<cr> 
 nmap <silent> fm :CocCommand fzf-preview.Bookmarks<cr> 
 nmap <silent> fb :CocCommand fzf-preview.Buffers<cr> 
 nmap <silent> fs :CocCommand fzf-preview.ProjectGrep<Space>-F<Space>"<C-r>=expand('<cword>')<CR>"<CR>
@@ -126,6 +105,11 @@ nmap <silent> rn <Plug>(coc-diagnostic-next)
 nmap <silent> rr :CocCommand rust-analyzer.run<CR>
 "}
 
+" fugitive git {
+nmap <silent> gs :Git status<CR>
+nmap <silent> gs :Gvdiffsplit<CR>
+
+"}
 
 " indtent line {
 let g:indent_guides_guide_size = 1
@@ -182,3 +166,4 @@ endfunction
 
 command! -nargs=* -bang Gtfzf call GtagsFzf(<q-args>, <bang>0)
 "}
+
