@@ -69,10 +69,17 @@ NumpadDot::End
 
 
 #IfWinActive, ahk_exe Obsidian.exe
+Numpad6::LinkSelectionWithSurround()  ; Surround selection by "[[""]]"
 Numpad5::LinkSelection()  ; Surround selection by "[[]]"
 Numpad4::LinkSelectionWithDelSurround()  ; Del old Surround and Surround selection by "[[]]"
 Numpad2::CodeSelection()  ; Surround selection by "`"
 Numpad1::CodeSelectionWithDelSurround()  ; Del old Surround and Surround selection by "`"
+
+LinkSelectionWithSurround()
+{
+	selection:= GetSelection()  ; Get selected text.
+	PasteText(SurroundLink(selection))  ; SurroundLink the text and paste it back.
+}
  
 LinkSelection()
 {
@@ -115,6 +122,11 @@ PasteText(s)
 {
 	Clipboard:=s  ; Put the text on the clipboard.
 	Send ^v  ; Paste the text with Ctrl+V.
+}
+
+SurroundLink(s)
+{
+	return "[[""" . s . """]]"
 }
  
 Link(s)
