@@ -40,13 +40,11 @@ table{
     padding:1px 0px 1px 0px;
 }
 .nav-folder-title {
-    margin:0px 0px 1px 0px;
-    min-width:auto;
+    margin:0px 0px 0px 0px;
     padding:1px 0px 1px 0px;
-    line-height:0.8;
     cursor:var(--cursor);
-    margin-left:0px;
-    font-size:14px;
+    margin-left:5px;
+    font-size:15px;
 }
 
 .nav-file {
@@ -54,14 +52,13 @@ table{
     padding-right:4px;
 }
 .nav-file-title {
-    width:calc(100% - 30px);
-    margin:2px 1px 1px 1px;
+    margin:2px 1px 0px 1px;
     padding:2px 2px;
     border-width:0;
     line-height:1;
     border-radius:var(--radius-m);
     cursor:var(--cursor);
-    font-size:13px;
+    font-size:14px;
 }
 
 .nav-folder.mod-root > .nav-folder-title {
