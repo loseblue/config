@@ -1,23 +1,23 @@
 body { 
-    --font-monospace: '更纱黑体 Mono SC Nerd', 'Source Code Pro', monospace;
+    --font-monospace: yaheiInconsolata, '更纱黑体 Mono SC Nerd', 'Source Code Pro', monospace;
 }
 
 root {
-    --default-font: '更纱黑体 Mono SC Nerd', 'Source Code Pro', Menlo, Monaco, monospace;
-    --font-editor-override: '更纱黑体 Mono SC Nerd', 'Source Code Pro', Menlo, Monaco, monospace;
-    --font-monospace: '更纱黑体 Mono SC Nerd', 'Source Code Pro', monospace;
+    --default-font: yaheiInconsolata, '更纱黑体 Mono SC Nerd', 'Source Code Pro', Menlo, Monaco, monospace;
+    --font-editor-override: yaheiInconsolata, '更纱黑体 Mono SC Nerd', 'Source Code Pro', Menlo, Monaco, monospace;
+    --font-monospace: yaheiInconsolata, '更纱黑体 Mono SC Nerd', 'Source Code Pro', monospace;
 }
 
 table{
-    font-family: '更纱黑体 Mono SC Nerd', 'Source Code Pro',  -apple-system, Segoe UI;
+    font-family: yaheiInconsolata, '更纱黑体 Mono SC Nerd', 'Source Code Pro',  -apple-system, Segoe UI;
 }
 
 .markdown-preview-view{
-    font-family:'更纱黑体 Mono SC Nerd', 'Source Code Pro',   monospace;
+    font-family: yaheiInconsolata,'更纱黑体 Mono SC Nerd', 'Source Code Pro',   monospace;
 }
 
 .markdown-source-view{
-    font-family: "更纱黑体 Mono SC Nerd", 'Source Code Pro', monospace;
+    font-family: yaheiInconsolata, "更纱黑体 Mono SC Nerd", 'Source Code Pro', monospace;
 }
 
 
