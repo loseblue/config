@@ -175,9 +175,9 @@ if (g:isMac)
 elseif (g:isLinux)
     set guifont=Monaco
 else
-	set guifont=Sarasa_Mono_SC_Nerd:h11
+"	set guifont=Sarasa_Mono_SC_Nerd:h11
 "	set guifont=SauceCodePro\ NF:h11
-"	set guifontwide=yaheiInconsolata:h12
+	set guifontwide=yaheiInconsolata:h12
 endif
 
 " goyo
