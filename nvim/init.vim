@@ -29,7 +29,7 @@ Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
-Plug 'Exafunction/codeium.vim'
+Plug 'liuchengxu/vista.vim'
 
 call plug#end()
 
