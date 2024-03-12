@@ -1,0 +1,30 @@
+[push]
+    default = simple
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    list = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    type = cat-file -t
+    dump = cat-file -p
+[core]
+    autocrlf = false
+    compression = 0
+[difftool "sourcetree"]
+	cmd = 'C:/Program Files/Beyond Compare 4/BCompare.exe' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = 'C:/Program Files/Beyond Compare 4/BCompare.exe' \"$LOCAL\" \"$REMOTE\" \"$BASE\" -o \"$MERGED\"
+	trustExitCode = true
+	keepBackup = false
+[credential]
+    helper = store
+[https "https://github.com"]
+    proxy = socks5://127.0.0.1:10808
+[user]
+	name = baojingzhong
+	email = baojingzhong@yunzhiruantong.com
+[credential "http://192.168.1.104"]
+    provider = generic
+[mergetool]
+	keepBackup = false
