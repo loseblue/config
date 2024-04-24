@@ -74,6 +74,7 @@ Numpad8::SubSelection()  ; Surround selection by "<sub>""</sub>"
 Numpad6::LinkSelectionWithSurround()  ; Surround selection by "[[""]]"
 Numpad5::LinkSelection()  ; Surround selection by "[[]]"
 Numpad4::LinkSelectionWithDelSurround()  ; Del old Surround and Surround selection by "[[]]"
+Numpad3::DelSingleSurround()  ; Del old Surround
 Numpad2::CodeSelection()  ; Surround selection by "`"
 Numpad1::CodeSelectionWithDelSurround()  ; Del old Surround and Surround selection by "`"
 Numpad0::Ctrl 
@@ -106,7 +107,14 @@ SupSelection()
 	selection:= GetSelection()  ; Get selected text.
 	PasteText(Sup(selection))  ; Code the text and paste it back.
 }
- 
+
+DelSingleSurround()
+{
+	selection:= GetSelection()  ; Get selected text.
+    DelSurround()
+	PasteText(selection)  
+}
+
 LinkSelectionWithDelSurround()
 {
 	selection:= GetSelection()  ; Get selected text.
