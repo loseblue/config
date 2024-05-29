@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+    <head>
+        <title>QuiteRSS</title>
+        <dateModified>周三 5月 29 10:23:42 2024</dateModified>
+    </head>
+    <body>
+        <outline text="生活">
+            <outline text="V2EX - 交易" type="rss" htmlUrl="https://www.v2ex.com/" xmlUrl="https://www.v2ex.com/feed/tab/deals.xml"/>
+        </outline>
+        <outline text="程序员">
+            <outline text="Rust.cc" type="rss" htmlUrl="https://rust.cc" xmlUrl="https://rustcc.cn/rss"/>
+        </outline>
+        <outline text="软件">
+            <outline text="小众软件" type="rss" htmlUrl="https://www.appinn.com" xmlUrl="https://feeds.appinn.com/appinns/"/>
+            <outline text="异次元软件世界" type="rss" htmlUrl="https://www.iplaysoft.com" xmlUrl="https://feed.iplaysoft.com"/>
+            <outline text="OSCHINA 社区最新新闻" type="rss" htmlUrl="https://www.oschina.net/news/rss" xmlUrl="http://www.oschina.net/news/rss"/>
+            <outline text="沸点 - 开发工具推荐" type="rss" htmlUrl="https://juejin.cn/pins/recommended" xmlUrl="https://rsshub.app/juejin/pins/6824710202000932877"/>
+            <outline text="Obsidian Blog" type="rss" htmlUrl="https://obsidian.md/" xmlUrl="http://obsidian.md/feed.xml"/>
+            <outline text="Obsidian Changelog" type="rss" htmlUrl="https://obsidian.md/" xmlUrl="http://obsidian.md/changelog.xml"/>
+            <outline text="Vim builds for Windows" type="rss" htmlUrl="https://tuxproject.de/projects/vim" xmlUrl="https://tuxproject.de/projects/vim/rss.xml"/>
+        </outline>
+        <outline text="Hacker News: Front Page" type="rss" htmlUrl="https://news.ycombinator.com/" xmlUrl="https://hnrss.org/frontpage"/>
+        <outline text="科技">
+            <outline text="少数派" type="rss" htmlUrl="https://sspai.com" xmlUrl="http://sspai.me/feed"/>
+            <outline text="月光博客" type="rss" htmlUrl="https://www.williamlong.info/" xmlUrl="http://feed.williamlong.info/"/>
+            <outline text="cnBeta" type="rss" htmlUrl="https://www.cnbeta.com" xmlUrl="https://www.cnbeta.com/backend.php"/>
+            <outline text="weekly 标签活动" type="rss" htmlUrl="https://discuss-cn.bestxtools.com/d/139/4" xmlUrl="https://discuss-cn.bestxtools.com/atom/t/weekly"/>
+            <outline text="DTO: dto-weekly - DTO Weekly Curations" type="rss" htmlUrl="https://dto.pipecraft.net/" xmlUrl="https://dto.pipecraft.net/t/dto-weekly.rss"/>
+        </outline>
+        <outline text="娱乐">
+            <outline text="Chiphell - 分享与交流用户体验 - 原创分享" type="rss" htmlUrl="https://www.chiphell.com/forum-314-1.html" xmlUrl="https://www.chiphell.com/forum.php?mod=rss&amp;fid=314&amp;auth=0"/>
+        </outline>
+        <outline text="Tel">
+            <outline text="阿里云盘吧 - Telegram Channel" type="rss" htmlUrl="https://t.me/s/Q66Share" xmlUrl="https://rsshub.app/telegram/channel/Q66Share"/>
+            <outline text="ahhhhfs｜A姐分享 - Telegram Channel" type="rss" htmlUrl="https://t.me/s/abskoop" xmlUrl="https://rsshub.app/telegram/channel/abskoop"/>
+            <outline text="🎬 云盘盘 - 阿里云盘投稿🚦 - Telegram Channel" type="rss" htmlUrl="https://t.me/s/yunpanpan" xmlUrl="https://rsshub.app/telegram/channel/yunpanpan"/>
+        </outline>
+        <outline text="5G">
+            <outline text="The 3G4G Blog" type="rss" htmlUrl="http://blog.3g4g.co.uk/" xmlUrl="https://feeds.feedburner.com/3gAnd4gWirelessBlog"/>
+            <outline text="How LTE Stuff Works?" type="rss" htmlUrl="http://howltestuffworks.blogspot.com/" xmlUrl="https://howltestuffworks.blogspot.com/feeds/posts/default?alt=rss"/>
+            <outline text="How LTE Stuff Works?" type="rss" htmlUrl="http://howltestuffworks.blogspot.com/" xmlUrl="https://howltestuffworks.blogspot.com/feeds/posts/default"/>
+            <outline text="3GPP" type="rss" htmlUrl="https://kill-the-newsletter.com/feeds/69fdihvujd7x71fv/entries/3g3yz6z7s42dpy5y.html" xmlUrl="https://kill-the-newsletter.com/feeds/69fdihvujd7x71fv.xml"/>
+        </outline>
+    </body>
+</opml>
