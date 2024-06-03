@@ -70,7 +70,8 @@ NumpadDot::End
 
 #IfWinActive, ahk_exe Obsidian.exe
 Numpad9::SupSelection()  ; Surround selection by "<sup>""</sup>"
-Numpad8::SubSelection()  ; Surround selection by "<sub>""</sub>"
+Numpad8::CenterSelection()  ; Surround selection by "<center>""</center>"
+Numpad7::SubSelection()  ; Surround selection by "<sub>""</sub>"
 Numpad6::LinkSelectionWithSurround()  ; Surround selection by "[[""]]"
 Numpad5::LinkSelection()  ; Surround selection by "[[]]"
 Numpad4::LinkSelectionWithDelSurround()  ; Del old Surround and Surround selection by "[[]]"
@@ -101,6 +102,13 @@ SubSelection()
 	selection:= GetSelection()  ; Get selected text.
 	PasteText(Sub(selection))  ; Code the text and paste it back.
 }
+
+CenterSelection()
+{
+	selection:= GetSelection()  ; Get selected text.
+	PasteText(Center(selection))  ; Code the text and paste it back.
+}
+ 
  
 SupSelection()
 {
@@ -165,6 +173,11 @@ Code(s)
 Sub(s)
 {
 	return "<sub>" . s . "</sub>"
+}
+
+Center(s)
+{
+	return "<center>" . s . "</center>"
 }
 
 Sup(s)
