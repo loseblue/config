@@ -1,6 +1,8 @@
 if (vim.fn.has('termguicolors') == 1) then
     vim.opt.termguicolors = true
 end
+vim.opt.guifont = { "Sarasa Term SC Nerd", ":h12" }
+
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
@@ -15,7 +17,7 @@ vim.wo.cursorline = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 -- 右侧参考线，超过表示代码太长了，考虑换行
-vim.wo.colorcolumn = "100"
+vim.wo.colorcolumn = "120"
 
 -- 缩进4个空格等于一个Tab
 vim.o.tabstop = 4
@@ -51,5 +53,3 @@ vim.o.showtabline = 0
 -- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
 
-
-vim.o.guifont = "Sarasa_Mono_SC_Nerd_regular:h12"
