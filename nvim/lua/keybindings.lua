@@ -42,17 +42,27 @@ map("n", "<leader>b", ":HopWordBC<CR>", opt)
 
 
 --lsp
-map("n", "fn", ":lua vim.lsp.buf.rename<CR>", opt)
-map("n", "fd", ":lua vim.lsp.buf.definition()<CR>", opt)
-map("n", "fi", ":lua vim.lsp.buf.implementation()<CR>", opt)
-map("n", "fr", ":lua vim.lsp.buf.references()<CR>", opt)
 map("n", "f,", "<C-O>", opt)
 map("n", "f.", "<C-I>", opt)
-map('n', 'ff',":Telescope find_files<CR>", { desc = 'Telescope find files' })
-map('n', 'fg', ":Telescope live_grep<CR>", { desc = 'Telescope live grep' })
-map('n', 'fb', ":Telescope buffers<CR>", { desc = 'Telescope buffers' })
-map("n", "fl", "<cmd>Outline<CR>", { desc = "outline.nvim Toggle Outline" })
+-- map("n", "fn", ":lua vim.lsp.buf.rename<CR>", opt)
+-- map("n", "fl", "<cmd>Outline<CR>", { desc = "outline.nvim Toggle Outline" })
 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', 'ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', 'fg', builtin.grep_string, { desc = 'Telescope grep string' })
+vim.keymap.set('n', '<F3>', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', 'fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', 'fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+vim.keymap.set('n', 'fd', builtin.lsp_definitions, { desc = 'Telescope func def' })
+vim.keymap.set('n', 'fr', builtin.lsp_references, { desc = 'Telescope func ref' })
+vim.keymap.set('n', 'fc', builtin.lsp_incoming_calls, { desc = 'Telescope func call' })
+-- vim.keymap.set('n', 'fo', builtin.lsp_outgoing_calls, { desc = 'Telescope func call' })
+vim.keymap.set('n', 'ft', builtin.lsp_type_definitions, { desc = 'Telescope type def' })
+vim.keymap.set('n', 'fi', builtin.lsp_implementations, { desc = 'Telescope type impl' })
+vim.keymap.set('n', 'fa', builtin.lsp_workspace_symbols, { desc = 'Telescope all symb' })
+vim.keymap.set('n', 'fl', builtin.treesitter, { desc = 'treesitter' })
+vim.keymap.set('n', 'fm', builtin.marks, { desc = 'marks' })
 
 --highlighter
 map("n", "<leader>m", ":lua require'mywords'.hl_toggle()<CR>", { desc = "mywords.nvim " })

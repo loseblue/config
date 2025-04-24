@@ -1,8 +1,7 @@
-require("keybindings")
 require("basic")
-
 require("config.lazy")
 require("config.lsp")
+require("keybindings")
 
 
 vim.cmd.colorscheme "gruvbox"
