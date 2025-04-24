@@ -62,7 +62,7 @@ vim.keymap.set('n', 'ft', builtin.lsp_type_definitions, { desc = 'Telescope type
 vim.keymap.set('n', 'fi', builtin.lsp_implementations, { desc = 'Telescope type impl' })
 vim.keymap.set('n', 'fa', builtin.lsp_workspace_symbols, { desc = 'Telescope all symb' })
 vim.keymap.set('n', 'fl', builtin.treesitter, { desc = 'treesitter' })
-map("n", "fb", ":Telescope bookmarks list<CR>", opt)
+map("n", "fm", ":Telescope bookmarks list<CR>", opt)
 
 
 --highlighter
