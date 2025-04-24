@@ -1,0 +1,18 @@
+return {
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+    config = function()
+        require("marks").setup({
+            default_mappings = true, -- 使用默认映射
+            signs = true, -- 启用标志栏符号
+            mappings = {
+                set = "mm", -- 设置标记
+                delete = "dm", -- 删除标记
+                next = "]m", -- 下一个标记
+                prev = "[m", -- 上一个标记
+                preview = "m:", -- 预览标记
+            },
+            sign_priority = { lower = 10, upper = 15, builtin = 8 }, -- 优先级，低于 clangd 的诊断
+        })
+    end,
+}

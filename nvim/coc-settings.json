@@ -1,7 +1,0 @@
-{
-    "suggest.minTriggerInputLength" : 3,
-	"rust-analyzer.inlayHints.chainingHints.enable" : false,
-	"rust-analyzer.inlayHints.parameterHints.enable" : false,
-
-    // "rust-analyzer.checkOnSave.enable" : false,
-}
