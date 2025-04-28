@@ -1,11 +1,27 @@
-vim.diagnostic.config({
-    virtual_text = false,
-    signs = true,
-    underline = false,
-    update_in_insert = false,
-})
-local signs = { Error = "󰅙", Info = "󰋼", Hint = "󰌵", Warn = "" }
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+return 
+{
+    "neovim/nvim-lspconfig",
+    dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
+    config = function()
+        -- 诊断配置
+        vim.diagnostic.config({
+            signs = {
+                active = true,
+                text = {
+                    [vim.diagnostic.severity.ERROR] = " ",
+                    [vim.diagnostic.severity.WARN] = " ",
+                    [vim.diagnostic.severity.INFO] = "󰋼 ",
+                    [vim.diagnostic.severity.HINT] = "󰌵 ",
+                },
+                numhl = {
+                    [vim.diagnostic.severity.ERROR] = "",
+                    [vim.diagnostic.severity.WARN] = "",
+                    [vim.diagnostic.severity.HINT] = "",
+                    [vim.diagnostic.severity.INFO] = "",
+                },
+            },
+            underline = false,
+            update_in_insert = false,
+        })
+    end,
+}
