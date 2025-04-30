@@ -61,3 +61,13 @@ map("n", "fm", ":Telescope bookmarks list<CR>", opt)
 --highlighter
 map("n", "<leader>m", ":lua require'mywords'.hl_toggle()<CR>", { desc = "mywords.nvim " })
 
+-- git
+
+local gitsigns = require("gitsigns")
+vim.keymap.set('n', 'gs', gitsigns.preview_hunk_inline, { desc = 'show modify diff inline' })
+vim.keymap.set('n', 'gi', gitsigns.toggle_current_line_blame, { desc = 'who when modify' })
+vim.keymap.set('n', 'gr', gitsigns.reset_hunk, { desc = 'reset modify' })
+vim.keymap.set('n', 'gm', gitsigns.diffthis, { desc = 'show file modify split' })
+vim.keymap.set("n", "gd", function() gitsigns.diffthis('HEAD^') end, { desc = "show remote diff split" })
+vim.keymap.set("n", "g.", function() gitsigns.nav_hunk("next") end, { desc = "Next hunk or diff" })
+vim.keymap.set("n", "g,", function() gitsigns.nav_hunk("prev") end, { desc = "Prev hunk or diff" })

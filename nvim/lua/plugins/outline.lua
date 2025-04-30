@@ -8,12 +8,23 @@ return {
                 position = 'left',
                 show_cursorline = true,
                 hide_cursor = true,
+                width = 18,
+                relative_width = true,
             },
             outline_items = {
-                show_symbol_details = false,
+                show_symbol_details = true,
             },
             symbol_folding = {
                 autofold_depth = false,
+            },
+
+            guides = {
+                enabled = true,
+                markers = {
+                    bottom = '└',
+                    middle = '├',
+                    vertical = '│',
+                },
             },
         }
     end,

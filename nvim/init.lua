@@ -1,6 +1,5 @@
 require("basic")
 require("config.lazy")
-require("config.lsp")
 require("keybindings")
 
 
@@ -12,6 +11,6 @@ if vim.g.neovide then
     -- vim.g.neovide_fullscreen = true
     -- vim.g.neovide_remember_window_size = true
     vim.g.neovide_cursor_vfx_mode = "torpedo"
-    vim.opt.guifont = { "Sarasa Term SC Nerd", ":h12" }
+    vim.opt.guifont = { "Sarasa Term SC Nerd", ":h13" }
 end
 
