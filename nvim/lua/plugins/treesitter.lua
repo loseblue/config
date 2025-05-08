@@ -10,6 +10,7 @@ return {
             highlight = { enable = true },
             indent = { enable = true },  
             disable = { "java", "query" },
+            fold = { enable = true },
         })
     end
 }

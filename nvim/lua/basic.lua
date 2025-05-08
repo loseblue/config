@@ -53,3 +53,5 @@ vim.o.showtabline = 0
 -- 配置剪切板
 vim.opt.clipboard = "unnamedplus"
 
+-- 允许折叠 
+vim.opt.foldenable = true

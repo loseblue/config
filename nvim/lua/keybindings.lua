@@ -71,3 +71,4 @@ vim.keymap.set("n", "g,", function() gitsigns.nav_hunk("prev") end, { desc = "Pr
 
 
 map("n", "<F10>", "<cmd>Outline<CR>", { desc = "outline.nvim Toggle Outline" })
+
