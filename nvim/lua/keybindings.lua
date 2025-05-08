@@ -1,6 +1,3 @@
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
-
 
 -- 保存本地变量
 local map = vim.api.nvim_set_keymap
@@ -71,3 +68,6 @@ vim.keymap.set('n', 'gm', gitsigns.diffthis, { desc = 'show file modify split' }
 vim.keymap.set("n", "gd", function() gitsigns.diffthis('HEAD^') end, { desc = "show remote diff split" })
 vim.keymap.set("n", "g.", function() gitsigns.nav_hunk("next") end, { desc = "Next hunk or diff" })
 vim.keymap.set("n", "g,", function() gitsigns.nav_hunk("prev") end, { desc = "Prev hunk or diff" })
+
+
+map("n", "<F10>", "<cmd>Outline<CR>", { desc = "outline.nvim Toggle Outline" })

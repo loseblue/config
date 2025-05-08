@@ -7,7 +7,6 @@ return {
             outline_window = {
                 position = 'left',
                 show_cursorline = true,
-                hide_cursor = true,
                 width = 18,
                 relative_width = true,
             },
