@@ -3,7 +3,7 @@ return {
     dependencies = { "kevinhwang91/promise-async" },
     config = function()
         -- 折叠设置
-        vim.o.foldcolumn = "1" -- 显示折叠指示器
+        vim.o.foldcolumn = "0" -- 不显示折叠指示器
         vim.o.foldlevel = 99 -- 默认展开所有折叠
         vim.o.foldlevelstart = 99 -- 启动时展开
         vim.o.foldenable = true -- 启用折叠
