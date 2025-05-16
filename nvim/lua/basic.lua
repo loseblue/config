@@ -1,7 +1,8 @@
 if (vim.fn.has('termguicolors') == 1) then
     vim.opt.termguicolors = true
 end
-vim.opt.guifont = { "Sarasa Term SC Nerd", ":h12" }
+-- vim.opt.guifont = { "Sarasa Term SC Nerd", ":h12" }
+vim.opt.guifont = { "Maple Mono NF CN", ":h12" }
 
 -- utf8
 vim.g.encoding = "UTF-8"

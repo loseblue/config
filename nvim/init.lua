@@ -4,6 +4,7 @@ vim.g.maplocalleader = ","
 
 require("basic")
 require("config.lazy")
+require("config.quickfix")
 require("keybindings")
 
 
