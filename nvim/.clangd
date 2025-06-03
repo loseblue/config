@@ -1,0 +1,6 @@
+CompileFlags:
+  Add: 
+  - -DL3_FILTERING=1
+  - -DARM=1
+  - -DUE=1
+  - -DUEAPP=1
