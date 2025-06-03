@@ -1,14 +1,15 @@
 -- path:.config/wezterm/config/ui.lua
 local wezterm = require("wezterm")
 
-local fonts = { "Sarasa Term SC Nerd", "Fira Code", "Source Code Pro", "JetBrains Mono NL" }
+local fonts = {"Maple Mono NF CN", "Sarasa Term SC Nerd", "Fira Code", "Source Code Pro", "JetBrains Mono NL" }
 
 return {
     animation_fps = 60,
     max_fps = 120,
     front_end = "WebGpu",
-    font = wezterm.font("Sarasa Term SC Nerd", {italic = false }), -- 字体
+    font = wezterm.font("Maple Mono NF CN", {italic = false }), -- 字体
     font_size = 12,
+    cell_width = 0.85,
     webgpu_power_preference = "HighPerformance",
     webgpu_preferred_adapter = wezterm.gui.enumerate_gpus()[1],
     color_scheme = 'Gruvbox Dark (Gogh)',
